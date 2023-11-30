@@ -1,8 +1,8 @@
 <template>
     <div class="list">
         <ul>
-            <li>Телескопы</li>
-            <li>Бинокли</li>
+            <li @click="Optika">Телескопы</li>
+            <li @click="Binokl">Бинокли</li>
             <li>Лупы</li>
             <li>Микроскопы</li>
             <li>Зрительные трубы</li>
@@ -14,6 +14,18 @@
         </ul>
     </div>
 </template>
+<script setup>
+import {ref} from "vue"
+import {useRouter} from "vue-router"
+const router = useRouter()
+
+const Binokl = () => {
+    router.push('/binokl')
+}
+const Optika = () => {
+    router.push('/optika')
+}
+</script>
 
 <style scoped>
 .list{

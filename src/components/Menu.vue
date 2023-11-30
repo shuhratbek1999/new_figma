@@ -126,19 +126,13 @@ const productSearch = () => {
 }
 @media(max-width: 412px){
 .search_input{
-    width: 100%;
-    height: 100px;
-    /* border: 1px solid red; */
     display: none;
-    position: fixed;
-    background-color: aliceblue;
-    top: 60px;
-    z-index: 1000;
 }
 .search_input .n-input{
     width: 90%;
 }
 .menu{
+    /* border: 1px solid red; */
     min-width: 100%;
     max-width: 410px;
     height: 60px;
@@ -150,6 +144,7 @@ const productSearch = () => {
     margin: 0px 0px 20px 0px;
     background-color: rgb(245, 242, 242);
     position: relative;
+    background-color: #F7F8FB
 }
 /* .menu{
     position: fixed;

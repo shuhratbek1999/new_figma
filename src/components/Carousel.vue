@@ -157,7 +157,7 @@ onMounted(() => {
 .categori_item .item_list{
     padding: 10px;
     width: 270px;
-    min-height: 350px;
+    height: 350px;
     background-color: white;
     margin: 0px 15px;
     border-radius: 5px;
@@ -354,9 +354,9 @@ onMounted(() => {
     /* border: 1px solid red; */
 }
 .categori_item .item_list{
-     background-color: white;
+    background-color: white;
     width: 93%;
-    height: 200px;
+    height: 260px;
     display: flex;
     justify-content: center;
     flex-direction: column;

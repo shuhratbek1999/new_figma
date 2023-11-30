@@ -82,6 +82,7 @@ const LengthCard = computed(() => {
     bottom: 0;
     box-shadow: 0px 2px 10px black;
     background-color: white;
+    display: inline-block;
 }
 .korzinka_list ul{
     display: flex;

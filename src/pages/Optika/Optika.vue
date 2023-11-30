@@ -275,7 +275,7 @@ import Foter from "../../components/Foter.vue";
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 5px;
+    margin: 0px 5px;
 }
 .brend{
     background-color: #F7F8FB;
