@@ -28,7 +28,11 @@ export const SevimliProduct = defineStore("sevimli", {
             }
         },
         DeleteCard(id) {
-            
+            let index = this.sevimliProduct.findIndex(item => item.id == id)
+            this.sevimliProduct.splice(index, 1)
         }
+    },
+    getters:{
+        sevimliLength: (state) => state.sevimliProduct.length
     }
 });

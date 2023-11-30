@@ -2,7 +2,7 @@
     <div class="carousel carrrrr">
         <n-carousel v-if="SearchProduct.length != 0" class="categori_item"  :slides-per-view="counts" autoplay>
             <div class="item_list" v-for="(item,index) in SearchProduct" :key="index">
-                <div class="img">
+                <div @click="ProductAbout(item.id)" class="img">
                     <slot name="rasm">
                         <img width="130" :src="item.img" alt="">
                     </slot>
@@ -17,7 +17,7 @@
                 <div class="foter">
                     <slot name="price">
                         <div class="price">
-                          {{item.price}}₽
+                          {{item.price}} ₽
                         </div>
                     </slot>
                     <n-icon @click="Savatcha(item)" class="savat" size="20">
@@ -60,10 +60,14 @@ import {Heart12Filled} from "@vicons/fluent";
 import {BalanceScaleRight,HeartRegular} from "@vicons/fa";
 import {Lightning} from "@vicons/carbon";
 import {ref, onMounted, computed} from "vue";
-import {Products} from "../stores/product";
 import {SevimliProduct} from "../stores/Sevimli";
-const productPinia = Products();
 const sevimliPinia = SevimliProduct();
+import {useRouter} from "vue-router"
+const router = useRouter()
+import {filterStore} from "../stores/filter";
+const FilterStores = filterStore();
+import {Products} from "../stores/product";
+const productPinia = Products();
 const selectedIndex = ref(null)
 import img1 from "../assets/img.png";
 import img2 from "../assets/img2.png";
@@ -112,6 +116,11 @@ const SearchProduct = computed(() => {
         return categoriya.value
      }
 })
+const ProductAbout = (id) => {
+    //  console.log(id,"id")
+     FilterStores.$state.ids = id;
+     router.push("/binokl_about")
+}
 onMounted(() => {
     Mount();
 })

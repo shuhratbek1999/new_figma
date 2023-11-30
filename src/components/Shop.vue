@@ -16,7 +16,7 @@
             <div v-if="SearchProduct.length != 0" class="categori_item">
                 <n-carousel class="carousel"  :slides-per-view="counts" autoplay>
                     <div class="item_list" v-for="(item,index) in SearchProduct" :key="index">
-                        <div class="img"><img width="130" :src="item.img" alt=""></div>
+                        <div @click="ProductAbout(item.id)" class="img"><img width="130" :src="item.img" alt=""></div>
                         <div class="name">{{item.name}}</div>
                         <div class="rate">
                             <n-rate size="15" />
@@ -26,13 +26,13 @@
                         </div>
                         <div class="foter">
                             <div class="price">
-                                {{item.price}}
+                                {{item.price}} ₽
                             </div>
-                            <n-icon class="savat" size="20">
+                            <n-icon @click="Savatcha(item)" class="savat" size="20">
                             <ShoppingCartOutlined />
                             </n-icon>
                         </div>
-                        <div class="heart">
+                        <div class="heart" :class="{'yurak': selectedIndex === index}" @click="Sevimli(item, index)">
                             <n-icon size="30">
                             <HeartOutline />
                             </n-icon>
@@ -69,6 +69,10 @@ import {HeartOutline} from "@vicons/ionicons5";
 import {BalanceScaleRight,HeartRegular} from "@vicons/fa";
 import {Lightning} from "@vicons/carbon";
 import {ref, onMounted,computed} from "vue";
+import {Products} from "../stores/product";
+const productPinia = Products();
+import {useRouter} from "vue-router"
+const router = useRouter()
 import img1 from "../assets/img.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/image179.png";
@@ -81,19 +85,34 @@ import img9 from "../assets/img.jpg";
 import img10 from "../assets/img(2).png";
 import {SevimliProduct} from "../stores/Sevimli";
 const sevimliPinia = SevimliProduct();
+import {filterStore} from "../stores/filter";
+const FilterStores = filterStore();
 const counts = ref(4);
+const selectedIndex = ref(null)
 const categoriya = ref([
-    {id: 1, img: img1, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10, price:"10 190 ₽"},
-    {id: 1, img: img2, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"10 190 ₽"},
-    {id: 1, img: img3, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10, price:"10 190 ₽"},
-    {id: 1, img: img4, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10, price:"10 190 ₽"},
-    {id: 1, img: img5, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10,price:"10 190 ₽"},
-    {id: 1, img: img6, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"10 190 ₽"},
-    {id: 1, img: img7, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10, price:"10 190 ₽"},
-    {id: 1, img: img8, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"10 190 ₽"},
-    {id: 1, img: img9, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"10 190 ₽"},
-    {id: 1, img: img10, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"10 190 ₽"},
+    {id: 1, img: img1, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10, price:"12000"},
+    {id: 2, img: img2, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"12000"},
+    {id: 3, img: img3, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10, price:"14000"},
+    {id: 4, img: img4, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10, price:"15000"},
+    {id: 5, img: img5, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10,price:"16000"},
+    {id: 6, img: img6, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"17000"},
+    {id: 7, img: img7, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10, price:"18000"},
+    {id: 8, img: img8, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"20000"},
+    {id: 9, img: img9, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"21000"},
+    {id: 10, img: img10, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"22000"}
 ])
+const Sevimli = (item,index) => {
+    selectedIndex.value = index;
+    sevimliPinia.setSevimli(item)
+}
+const Savatcha = (item) => {
+    productPinia.setProduct(item)
+}
+const ProductAbout = (id) => {
+    //  console.log(id,"id")
+     FilterStores.$state.ids = id;
+     router.push("/binokl_about")
+}
 const Mount = () =>{
     let shopping = document.querySelector('.xit');
         // console.log(shopping.clientWidth, "salommmmm")
@@ -120,6 +139,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.yurak{
+    color: red;
+}
 .shop{
     width: 100%;
     display: flex;
@@ -144,7 +166,7 @@ onMounted(() => {
 .item_list{
     padding: 10px;
     background-color: white;
-    width: 250px;
+    width: 270px;
     height: 350px;
     display: flex;
     justify-content: space-between;

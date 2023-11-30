@@ -70,10 +70,14 @@
         <div class="foter">
             <Foter />
         </div>
+        <div class="korzinka_lists">
+            <KorzinkaList />
+        </div>
     </div>
 </template>
 
 <script setup>
+import KorzinkaList from "../../components/ListKorzinka.vue";
 import TopMenu from "../../components/TopMenu.vue";
 import Prosmotr from "../../components/Prosmotr.vue";
 import Categoriya from "../../components/Kategoriya.vue";

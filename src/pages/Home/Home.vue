@@ -55,7 +55,7 @@
 
 <script setup>
 import TopMenu from "../../components/TopMenu.vue";
-import KorzinkaList from "../../components/korzinkaList.vue";
+import KorzinkaList from "../../components/ListKorzinka.vue";
 import Menu from "../../components/Menu.vue";
 import Search from "../../components/Search.vue";
 import List from "../../components/List.vue";

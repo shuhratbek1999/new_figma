@@ -71,6 +71,10 @@ const LengthCard = computed(() => {
 
 <style scoped>
 .korzinka_list{
+    display: none;
+}
+@media(max-width: 412px){
+.korzinka_list{
     width: 100%;
     height: 70px;
     /* border: 1px solid red; */
@@ -107,5 +111,6 @@ ul .eye, .heart, .balance, .shop{
     position: absolute;
     top: -5px;
     right: 10px;
+}
 }
 </style>

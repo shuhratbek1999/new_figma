@@ -38,32 +38,32 @@
 <script setup>
 import {ref, computed, defineEmits} from "vue";
 import {SevimliProduct} from '../stores/Sevimli';
-let ProductPinia = SevimliProduct();
+let SevimliPinia = SevimliProduct();
 const count = ref(0);
 let AllPrice = ref(0);
 const card_product = ref([])
 const emit = defineEmits(["tozala"]);
 const CardProduct = computed(() => {
-   return ProductPinia.sevimliProduct;
+   return SevimliPinia.sevimliProduct;
 })
 const Minus = (id) => {
-    ProductPinia.DeleteCard(id)
+    SevimliPinia.DeleteCard(id)
 }
 const Tozalash = () => {
     emit("tozala", {bool: false});
 }
 const AllDeleted = () => {
-    ProductPinia.AllProductDelete()
+    SevimliPinia.AllProductDelete()
 }
 const Price = computed(() => {
     let price = 0;
-    ProductPinia.sevimliProduct.map(key => {
+    SevimliPinia.sevimliProduct.map(key => {
         price += (key['narx'] * 1)
     })
     return price;
 })
 const LengthCard = computed(() => {
-    return ProductPinia.cardLength;
+    return SevimliPinia.sevimliLength;
 })
 </script>
 

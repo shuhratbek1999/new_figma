@@ -57,11 +57,15 @@
           <div class="binokl_foter">
               <Foter />
           </div>
+          <div class="korzinka_lists">
+            <KorzinkaList />
+        </div>
     </div>
 </template>
 
 <script setup>
 import {defineProps} from "vue";
+import KorzinkaList from "../../components/ListKorzinka.vue";
 import Brend from "../../components/Brend.vue";
 import TopMenu from "../../components/TopMenu.vue";
 import Filtr from "../../components/Filtr.vue";

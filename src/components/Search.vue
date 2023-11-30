@@ -31,7 +31,7 @@
                     <n-icon size="25">
                         <HeartRegular />
                     </n-icon>
-                    <div class="number">0</div>
+                    <div class="number">{{sevimliCardLength}}</div>
                 </li>
                 <li class="shop" @click="Korzinka">
                     <n-icon size="25">
@@ -60,6 +60,8 @@ const search = ref(null);
 const SevimliBool = ref(false);
 const cards = ref(false);
 let searchInput = filterStore();
+import {SevimliProduct} from '../stores/Sevimli';
+const sevimliPinia = SevimliProduct()
 import {Products} from '../stores/product';
 let ProductPinia = Products();
 // const tozalash = ref("")
@@ -80,7 +82,10 @@ const Sevimlilar = () => {
     SevimliBool.value = !SevimliBool.value
 }
 const LengthCard = computed(() => {
-    return ProductPinia.cardLength;
+    return ProductPinia.cardLengths;
+})
+const sevimliCardLength = computed(() => {
+    return sevimliPinia.sevimliLength
 })
 </script>
 <style scoped>

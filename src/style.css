@@ -47,6 +47,7 @@ a:hover {
   transform: translate(-50%, -50%);
   background-color: white;
   border-radius: 5px;
+  z-index: 1000;
   /* padding: 0px 20px; */
 }
 .card_top{
@@ -89,6 +90,7 @@ a:hover {
     transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 5px;
+    z-index: 1000;
     /* padding: 0px 20px; */
   }
   .card_top{

@@ -40,8 +40,8 @@
              </div>
         </div>
         <div class="product_content">
-              <div class="item_list" @click="ProductAbout(item.id)" v-for="(item,index) in ArrayMassivProducts" :key="index">
-                <div class="img"><img width="130" :src="item.img" alt=""></div>
+              <div class="item_list" v-for="(item,index) in ArrayMassivProducts" :key="index">
+                <div @click="ProductAbout(item.id)" class="img"><img width="130" :src="item.img" alt=""></div>
                 <div class="name">{{item.name}}</div>
                 <div class="rate">
                     <n-rate size="15" />
@@ -53,21 +53,21 @@
                     <div class="price">
                         {{item.price}} ₽
                     </div>
-                    <n-icon class="savat" size="20">
+                    <n-icon @click="Savatcha(item)" class="savat" size="20">
                     <ShoppingCartOutlined />
                     </n-icon>
                 </div>
-                <div v-if="!Menu" class="heart">
+                <div class="heart" :class="{'yurak': selectedIndex === index}" @click="Sevimli(item, index)">
                     <n-icon size="30">
                     <HeartOutline />
                     </n-icon>
                 </div>
-                <div v-if="!Menu" class="balanc">
+                <div class="balanc">
                     <n-icon size="30">
                     <BalanceScaleRight />
                     </n-icon>
                 </div>
-                <div v-if="!Menu" class="light">
+                <div class="light">
                     <n-icon size="30">
                     <Lightning />
                     </n-icon>
@@ -91,10 +91,6 @@ import {BalanceScaleRight,HeartRegular} from "@vicons/fa";
 import {MenuTwotone,ShoppingCartOutlined, CheckCircleOutlineRound} from "@vicons/material"
 import {Grid,Lightning} from "@vicons/carbon"
 import {GridDots20Filled} from "@vicons/fluent"
-const value = ref("По популярности");
-const number = ref("6");
-const Menu = ref(false);
-const router = useRouter();
 import img1 from "../assets/img.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/image179.png";
@@ -105,8 +101,17 @@ import img7 from "../assets/image184.png";
 import img8 from "../assets/image207.png";
 import img9 from "../assets/img.jpg";
 import img10 from "../assets/img(2).png";
+const value = ref("По популярности");
+const number = ref("6");
+const Menu = ref(false);
+import {Products} from "../stores/product";
+const productPinia = Products();
+import {SevimliProduct} from "../stores/Sevimli";
+const sevimliPinia = SevimliProduct();
+const router = useRouter();
 import {filterStore} from "../stores/filter";
 const FilterStores = filterStore();
+const selectedIndex = ref(null)
 const categoriya = ref([
     {id: 1, img: img1, name: "Бинокль БПЦ2 10х40 (обрезин., рубин)", count: 10, price:"5190", brend: "discovery"},
     {id: 2, img: img2, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"12190", brend: "svbony"},
@@ -123,6 +128,13 @@ const options = reactive([
     {label: "По популярности", value: 'По популярности'},
     {label: "Discovery", value: 'Discovery'}
 ])
+const Sevimli = (item,index) => {
+    selectedIndex.value = index;
+    sevimliPinia.setSevimli(item)
+}
+const Savatcha = (item) => {
+    productPinia.setProduct(item)
+}
 const numbers = reactive([
     {label: "6", value: "6"},
     {label: "12", value: "12"},
@@ -290,6 +302,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.yurak{
+    color: red;
+}
 .product_sort{
     width: 100%;
 }
@@ -363,9 +378,9 @@ onMounted(() => {
 }
 .product_content .item_list{
     box-shadow: 0px 0px 2px grey;
-    width: 250px;
+    width: 270px;
      cursor: pointer;
-    height: 390px;
+    height: 350px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -455,6 +470,10 @@ onMounted(() => {
     font-size: 22px;
 }
 .foter .savat{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
     /* border: 1px solid red; */
     /* padding: 8px; */
     background-color: #0696E7;
