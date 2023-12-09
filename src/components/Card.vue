@@ -18,7 +18,7 @@
             </div>
             <div class="card_price">{{item.narx}} ₽</div>
             <div @click="Minus(item.id)" class="close">X</div>
-        </div>
+        </div> 
     </div>
     <div v-else class="card_pustoy">
         <div class="card_list">
@@ -62,6 +62,7 @@ const Minus = (id) => {
     ProductPinia.DeleteCard(id)
 }
 const Tozalash = () => {
+    document.body.style.overflow = ''
     emit("tozala", {bool: false});
 }
 const AllDeleted = () => {
@@ -80,6 +81,10 @@ const LengthCard = computed(() => {
 </script>
 
 <style scoped>
+.card_footer{
+    /* border: 1px solid blue; */
+    height: 120px;
+}
 .chiqish{
     cursor: pointer;
 }
@@ -95,7 +100,7 @@ const LengthCard = computed(() => {
 }
 .card_pustoy{
     width: 100%;
-    min-height: 350px;
+    min-height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,11 +108,15 @@ const LengthCard = computed(() => {
 }
 .footer_top, .footer_bottom{
     width: 100%;
-    height: 80px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
+    /* border: 1px solid red; */
+}
+.footer_bottom{
+    height: 70px;
 }
 .footer_top{
     background-color: #FFFFFF;
@@ -194,18 +203,21 @@ const LengthCard = computed(() => {
     cursor: pointer;
 }
 .allPrice{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
 }
 .allDelete{
     cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
 }
 .allPrice span{
     margin-right: 10px;
+    font-size: 16px;
 }
 .card_pustoy{
     width: 100%;
-    min-height: 350px;
+    min-height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -213,7 +225,7 @@ const LengthCard = computed(() => {
 }
 .footer_top, .footer_bottom{
     width: 100%;
-    height: 80px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;

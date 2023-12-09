@@ -57,7 +57,7 @@
                     <ShoppingCartOutlined />
                     </n-icon>
                 </div>
-                <div class="heart" :class="{'yurak': selectedIndex === index}" @click="Sevimli(item, index)">
+                <div class="heart" @click="Sevimli(item, index)">
                     <n-icon size="30">
                     <HeartOutline />
                     </n-icon>
@@ -129,7 +129,9 @@ const options = reactive([
     {label: "Discovery", value: 'Discovery'}
 ])
 const Sevimli = (item,index) => {
-    selectedIndex.value = index;
+    let heart = document.querySelectorAll('.heart')
+    heart[index+1].classList.toggle('yurak')
+    sevimliPinia.setSevimli(item)
     sevimliPinia.setSevimli(item)
 }
 const Savatcha = (item) => {
@@ -472,10 +474,10 @@ onMounted(() => {
 .foter .savat{
     width: 30px;
     height: 30px;
-    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    /* border: 1px solid red; */
-    /* padding: 8px; */
     background-color: #0696E7;
     border-radius: 5px;
     color: white;
@@ -611,6 +613,9 @@ onMounted(() => {
     color: white;
     cursor: pointer;
     font-size: 15px !important;
+     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .item_list .rate, .foter{
     width: 100%;
@@ -633,7 +638,7 @@ onMounted(() => {
     font-size: 10px !important;
 }
 .item_list .name{
-    font-size: 12px;
+    font-size: 10px;
     width: 150px;
     font-family: sans-serif;
     /* border: 1px solid red; */
@@ -856,13 +861,16 @@ onMounted(() => {
 }
 .foter .savat{
     width: 25px;
-    height: 20px;
-    line-height: 20px;
+    height: 25px;
     background-color: #0696E7;
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    font-size: 15px !important;
 }
 .item_list .rate, .foter{
     width: 100%;
@@ -885,7 +893,7 @@ onMounted(() => {
     font-size: 10px !important;
 }
 .item_list .name{
-    font-size: 12px;
+    font-size: 10px;
     width: 150px;
     font-family: sans-serif;
     /* border: 1px solid red; */

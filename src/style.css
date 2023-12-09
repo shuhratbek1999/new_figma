@@ -1,44 +1,15 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
 *{
   padding: 0px;
   margin: 0px;
   /* box-sizing: border-box; */
 }
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.yurak{
+  color: red;
 }
 .card{
   border: 1px solid grey;
   width: 800px;
-  min-height: 550px;
+  min-height: 300px;
   border-radius: 2px;
   position: absolute;
   right: 50%;
@@ -49,6 +20,20 @@ a:hover {
   border-radius: 5px;
   z-index: 1000;
   /* padding: 0px 20px; */
+}
+.card_sevimli{
+  border: 1px solid grey;
+  width: 800px;
+  min-height: 300px;
+  border-radius: 2px;
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  top: 300px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1000; 
 }
 .card_top{
   width: 100%;
@@ -81,12 +66,12 @@ a:hover {
   .card{
     border: 1px solid grey;
     width: 90%;
-    min-height: 350px;
+    min-height: 200px;
     border-radius: 2px;
     position: absolute;
     right: 50%;
     left: 50%;
-    top: 0;
+    top: -180px;
     transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 5px;
@@ -112,14 +97,14 @@ a:hover {
   }
   .card_content{
     width: 100%;
-    height: 350px;
+    height: 150px;
     overflow-y: scroll;
     /* background-color: #646cff; */
     /* padding: 10px 0px; */
   }
   .card_footer{
     width: 100%;
-    height: 100px;
+    height: 60px;
   }
 }
 /* body {
@@ -198,8 +183,8 @@ button:focus-visible {
 }
 .categori_pustok{
   width: 94%;
-  height: 150px;
-  /* border: 1px solid grey; */
+  height: 100px;
+  border: 1px solid grey;
   text-align: center;
   line-height: 150px;
   border-radius: 5px;

@@ -28,7 +28,7 @@
         <div class="shopping">
             <Shop />
         </div>
-        <div class="brend">
+        <div class="brends">
             <Brend>
                <template v-slot:brend_top>
                     <div class="brend_top">
@@ -96,7 +96,7 @@ import Foter from "../../components/Foter.vue";
     width: 100%;
     height: 100vh;
 }
-.brend{
+.brends{
     background-color: #F7F8FB;
 }
 .brend_top{
@@ -121,6 +121,7 @@ import Foter from "../../components/Foter.vue";
     display: flex;
     justify-content: center;
     width: 100%;
+    height: 100px;
 }
 .brend_foter li{
     width: 20%;
@@ -131,6 +132,12 @@ import Foter from "../../components/Foter.vue";
     /* border: 1px solid red; */
     margin: 0px 8px; 
     border-radius: 5px;
+}
+.brend_foter li img{
+    width: 80px;
+}
+.brend_foter li:first-child img{
+    height: 80px;
 }
 .home_top{
     width: 100%;
@@ -200,7 +207,7 @@ import Foter from "../../components/Foter.vue";
     flex-wrap: wrap;
     margin: 5px;
 }
-.brend{
+.brends{
     background-color: #F7F8FB;
     padding: 10px;
 }
@@ -222,10 +229,11 @@ import Foter from "../../components/Foter.vue";
     font-weight: bold;
     font-size: 22px;
     font-family: sans-serif;
-    /* border: 1px solid red; */
 }
 .brend_foter{
+    border: 1px solid red;
     display: flex;
+    height: 300px;
     /* flex-direction: column; */
     justify-content: center;
     width: 100%;
@@ -245,7 +253,9 @@ import Foter from "../../components/Foter.vue";
 .brend_foter li img{
     width: 50px !important;
 }
-
+.brend_foter li:first-child img{
+    height: 60px;
+}
 }
 @media(max-width: 412px){
    .home_top{
@@ -277,9 +287,11 @@ import Foter from "../../components/Foter.vue";
     flex-wrap: wrap;
     margin: 0px 5px;
 }
-.brend{
+.brends{
     background-color: #F7F8FB;
     padding: 10px;
+    /* border: 1px solid red; */
+    height: 400px;
 }
 .brend_top{
     display: flex;
@@ -287,7 +299,7 @@ import Foter from "../../components/Foter.vue";
     justify-content: center;
     width: 100%;
     margin: 0px;
-    /* border: 1px solid red; */
+    /* border: 1px solid yellow; */
 }
 .brend_top .all{
     text-align: left;
@@ -303,10 +315,12 @@ import Foter from "../../components/Foter.vue";
 }
 .brend_foter{
     display: flex;
+    height: 230px;
     /* flex-direction: column; */
     justify-content: center;
     width: 100%;
     flex-wrap: wrap;
+    /* border: 1px solid black; */
 }
 .brend_foter li{
     width: 45%;
@@ -322,6 +336,8 @@ import Foter from "../../components/Foter.vue";
 .brend_foter li img{
     width: 50px !important;
 }
-
+.brend_foter li:first-child img{
+    height: 60px;
+}
 }
 </style>

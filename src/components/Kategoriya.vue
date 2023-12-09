@@ -221,5 +221,8 @@ onMounted(() => {
     font-size: 14px;
     /* color: red; */
 }
+.item_list .img img{
+    width: 60px;
+}
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="searchs">
+    <div class="searchs" @click="SearchText">
         <div class="search">
             <div class="logo"><img src="../assets/ban.png" alt="">
             </div>
@@ -53,12 +53,14 @@ import {RemoveRedEyeOutlined,ShoppingCartOutlined} from "@vicons/material";
 import {BalanceScaleRight,HeartRegular} from "@vicons/fa";
 import {SearchOutline} from "@vicons/ionicons5";
 import {filterStore} from '../stores/filter';
-import {computed,ref,onMounted} from "vue"
+import {computed,ref,onMounted,watchEffect} from "vue"
 import {NBadge} from "naive-ui";
 const value = ref(0);
 const search = ref(null);
 const SevimliBool = ref(false);
 const cards = ref(false);
+const props = defineProps(['search'])
+const emit = defineEmits(["tozalash"])
 let searchInput = filterStore();
 import {SevimliProduct} from '../stores/Sevimli';
 const sevimliPinia = SevimliProduct()
@@ -77,6 +79,7 @@ const sevimliTozalash = (data) => {
 }
 const Korzinka = () => {
     cards.value = !cards.value;
+    document.body.style.overflow = 'hidden'
 }
 const Sevimlilar = () => {
     SevimliBool.value = !SevimliBool.value
@@ -87,6 +90,13 @@ const LengthCard = computed(() => {
 const sevimliCardLength = computed(() => {
     return sevimliPinia.sevimliLength
 })
+const card = document.querySelector('.card')
+// watchEffect(() => {
+//     if(props.search){
+//        cards.value = false
+//        document.body.style.overflow = ''
+//     }
+// })
 </script>
 <style scoped>
 .searchs{

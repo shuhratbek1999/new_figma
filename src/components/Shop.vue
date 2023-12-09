@@ -15,7 +15,7 @@
         <slot name="carousel">
             <div v-if="SearchProduct.length != 0" class="categori_item">
                 <n-carousel class="carousel"  :slides-per-view="counts" autoplay>
-                    <div class="item_list" v-for="(item,index) in SearchProduct" :key="index">
+                    <div class="item_list" id="shop" v-for="(item,index) in SearchProduct" :key="index">
                         <div @click="ProductAbout(item.id)" class="img"><img width="130" :src="item.img" alt=""></div>
                         <div class="name">{{item.name}}</div>
                         <div class="rate">
@@ -32,7 +32,7 @@
                             <ShoppingCartOutlined />
                             </n-icon>
                         </div>
-                        <div class="heart" :class="{'yurak': selectedIndex === index}" @click="Sevimli(item, index)">
+                        <div class="heart" @click="Sevimli(item, index)">
                             <n-icon size="30">
                             <HeartOutline />
                             </n-icon>
@@ -102,7 +102,8 @@ const categoriya = ref([
     {id: 10, img: img10, name: "Бинокль Veber БПЦ zoom 8-32х50", count: 10, price:"22000"}
 ])
 const Sevimli = (item,index) => {
-    selectedIndex.value = index;
+    let heart = document.querySelectorAll('.heart')
+    heart[index+1].classList.toggle('yurak')
     sevimliPinia.setSevimli(item)
 }
 const Savatcha = (item) => {

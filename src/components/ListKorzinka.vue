@@ -6,7 +6,7 @@
                 <RemoveRedEyeOutlined />
                 </n-icon>
                 Промотренные
-                <!-- <div class="number">0</div> -->
+                <div class="number">0</div>
             </li>
             <li class="balance">
                 <n-icon size="25">
@@ -73,6 +73,47 @@ const LengthCard = computed(() => {
 .korzinka_list{
     display: none;
 }
+@media(max-width: 360px){
+.korzinka_list{
+    width: 100%;
+    height: 70px;
+    /* border: 1px solid red; */
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0px 2px 10px black;
+    background-color: white;
+    display: inline-block;
+}
+.korzinka_list ul{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+     /* border: 1px solid red; */
+     padding: 15px 0px;
+}
+.korzinka_list ul li{
+    text-align: center;
+    cursor: pointer;
+    /* border: 1px solid red; */
+}
+ul .eye, .heart, .balance, .shop{
+    position: relative;
+}
+.korzinka_list ul ul .eye .number, .balance .number, .heart .number, .shop .number{
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    /* border: 1px solid bl; */
+    border-radius: 50%;
+    font-size: 10px;
+    background-color: rgb(190, 187, 187);
+    color: white;
+    position: absolute;
+    top: -5px;
+    right: 10px;
+}
+}
 @media(max-width: 412px){
 .korzinka_list{
     width: 100%;
@@ -94,6 +135,7 @@ const LengthCard = computed(() => {
 .korzinka_list ul li{
     text-align: center;
     cursor: pointer;
+    font-size: 0.7rem;
     /* border: 1px solid red; */
 }
 ul .eye, .heart, .balance, .shop{

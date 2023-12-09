@@ -1,5 +1,5 @@
 <template>
-    <div class="home container">
+    <div class="home container" @click="HomeSearch">
         <div class="home_top">
             <!-- salom -->
             <TopMenu />
@@ -9,7 +9,7 @@
             <Menu />
         </div>
         <div class="search">
-            <Search />
+            <Search :search="CardClose" />
         </div>
         <div class="list">
             <List />
@@ -70,6 +70,15 @@ import HomeAbout from "../../components/Home_about.vue";
 import Prosmotr from "../../components/Prosmotr.vue";
 import Manzil from "../../components/manzil.vue";
 import Foter from "../../components/Foter.vue";
+import {ref} from "vue"
+const cardFalse = ref(null)
+let CardClose = ref("")
+const HomeSearch = (event) => {
+    CardClose.value = event.target;
+}
+// const tozalash = (data) => {
+//     cardFalse.value = data.bool
+// }
 </script>
 
 <style scoped>

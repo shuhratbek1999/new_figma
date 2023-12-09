@@ -4,6 +4,7 @@ import Optika from "./pages/Optika/Optika.vue";
 import Binokl from "./pages/Binokl/Binokl.vue";
 import BinoklAbout from "./pages/BinoklAbout/BinoklAbout.vue"
 import Kontakt from "./pages/Kontakt/Kontakt.vue"
+import registratsiya from "./pages/registratsiya/registratsiya.vue"
 const routerHistory = createWebHistory()
 
 const router = createRouter({
@@ -13,6 +14,11 @@ const router = createRouter({
       path: "/",
       name: "Home",
       component: Home,
+    },
+    {
+      path: "/registratsiya",
+      name: "RegisterUser",
+      component: registratsiya,
     },
     {
       path: "/optika",

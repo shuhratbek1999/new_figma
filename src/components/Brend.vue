@@ -64,17 +64,17 @@
 @media(max-width: 360px){
 .brend{
     width: 350px !important;
-    height: 300px !important;
+    height: 400px !important;
     /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     box-sizing: border-box;
     /* margin: 0px !important; */
 }
 .brend .brend_top{
-    width: 340px;
+    width: 98%;
     display: flex;
     margin: 0px 0px 10px 0px;
 }
@@ -90,7 +90,7 @@
     text-align: right !important;
 }
 .brend .brend_foter{ 
-    width: 340px;
+    width: 98%;
     height: 200px;
     display: flex;
     flex-wrap: wrap;
@@ -116,7 +116,7 @@
 @media(max-width: 412px){
 .brend{
     width: 100% !important;
-    height: 300px !important;
+    height: 400px !important;
     /* border: 1px solid red; */
     display: flex;
     flex-direction: column;

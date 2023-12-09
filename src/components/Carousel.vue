@@ -24,7 +24,7 @@
                     <ShoppingCartOutlined />
                     </n-icon>
                 </div>
-                <div class="heart" :class="{'yurak': selectedIndex === index}" @click="Sevimli(item, index)">
+                <div class="heart"  @click="Sevimli(item, index)">
                     <n-icon size="30">
                     <HeartOutline />
                     </n-icon>
@@ -105,6 +105,9 @@ const Savatcha = (item) => {
     productPinia.setProduct(item)
 }
 const Sevimli = (item,index) => {
+    let heart = document.querySelectorAll('.heart')
+    heart[index+1].classList.toggle('yurak')
+    console.log(heart[[index+1]])
     selectedIndex.value = index;
     sevimliPinia.setSevimli(item)
 }

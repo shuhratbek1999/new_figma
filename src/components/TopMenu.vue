@@ -44,7 +44,7 @@
             <n-icon size="20"> 
                 <PersonOutlineFilled />
             </n-icon>
-            Вход / Регистрация
+            <span>Вход</span> / <span @click="Register">Регистрация</span>
          </div>
     </div>
 </template>
@@ -56,6 +56,9 @@ import {useRouter} from "vue-router";
 const router = useRouter();
 const kontakt = () => {
     router.push("/kontakt")
+}
+const Register = () => {
+    router.push("/registratsiya")
 }
 </script>
 <style scoped>
@@ -71,7 +74,11 @@ const kontakt = () => {
     display: flex;
     /* height: 30px; */
     align-items: center;
+    cursor: pointer;
     /* border: 2px solid red; */
+}
+.top_menu .menu_item span{
+    margin: 0px 5px;
 }
 .top_menu .menu_item .menu_list{
     padding: 0px 5px;
